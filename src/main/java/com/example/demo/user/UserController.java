@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "user")
+@RequestMapping(path = "users")
 public class UserController {
 
     private final UserService userService;
@@ -22,8 +22,8 @@ public class UserController {
     }
 
     @PostMapping
-    public void registerNewUser(@RequestBody User user){
-        userService.addNewUser(user);
+    public void registerNewUser(@RequestBody User user, Long lectureId){
+        userService.addNewUser(user, lectureId);
     }
 
     @DeleteMapping(path = "{userId}")

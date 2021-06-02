@@ -1,6 +1,10 @@
 package com.example.demo.lecture;
 
+import com.example.demo.user.User;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table
@@ -22,8 +26,15 @@ public class Lecture {
     private String subject;
     private String lecturePlan;
     private int registeredParticipants;
+    //TODO Equals i hashcode dla usera?
+    @ManyToMany(mappedBy = "registeredLectures")
+    private Set<User> registeredUsers = new HashSet<>();
 
     public Lecture() {
+    }
+
+    public Lecture(Long id) {
+        this.id = id;
     }
 
     public Lecture(String startDate, String endDate, String title, String subject, String lecturePlan, int registeredParticipants) {
@@ -89,6 +100,10 @@ public class Lecture {
 
     public void setRegisteredParticipants(int registeredParticipants) {
         this.registeredParticipants = registeredParticipants;
+    }
+
+    public void addParticipant(User user){
+        registeredUsers.add(user);
     }
 
     @Override

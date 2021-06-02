@@ -1,6 +1,10 @@
 package com.example.demo.user;
 
+import com.example.demo.lecture.Lecture;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table
@@ -18,6 +22,13 @@ public class User {
     private Long id;
     private String login;
     private String email;
+    @ManyToMany
+    @JoinTable(
+            name = "participants",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "lecture_id")
+    )
+    private Set<Lecture> registeredLectures= new HashSet<>();
 
     public User() {
     }
@@ -57,6 +68,17 @@ public class User {
         this.email = email;
     }
 
+    public Set<Lecture> getRegisteredLectures() {
+        return registeredLectures;
+    }
+
+    public void setRegisteredLectures(Set<Lecture> registeredLectures) {
+        this.registeredLectures = registeredLectures;
+    }
+
+    public void addLecture(Lecture lecture){
+        registeredLectures.add(lecture);
+    }
     @Override
     public String toString() {
         return "User{" +
