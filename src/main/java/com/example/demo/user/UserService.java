@@ -58,9 +58,6 @@ public class UserService {
         }
     }
 
-    public void registerParticipation(User user, Lecture lecture){
-        user.addLecture(lecture);
-    }
 
     public void deleteUser(Long userId){
         boolean exists = userRepository.existsById(userId);
@@ -69,6 +66,16 @@ public class UserService {
                     "user with id: " + userId + " does not exist");
         }
         userRepository.deleteById(userId);
+    }
+
+    public Set<Lecture> getLectures(Long userId){
+        boolean exists = userRepository.existsById(userId);
+        if(!exists){
+            throw new IllegalStateException(
+                    "user with id: " + userId + " does not exist");
+        }
+        User user = userRepository.getById(userId);
+        return user.getRegisteredLectures();
     }
 
     @Transactional
