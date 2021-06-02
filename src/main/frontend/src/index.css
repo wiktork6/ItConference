@@ -48,3 +48,32 @@
   color: #6495ED;
   margin-bottom: 8px;
 }
+
+.lecture-preview a{
+  text-decoration: none;
+}
+
+img{
+  width: 15%;
+  height: 15%;
+  margin-right: 20px;
+}
+
+.lecture-details h2 {
+  font-size: 20px;
+  color:#6495ED;
+  margin-bottom: 10px;
+}
+
+.lecture-details div {
+  margin: 20px 0;
+}
+
+.lecture-details button {
+  background: #6495ED;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}

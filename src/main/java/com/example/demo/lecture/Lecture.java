@@ -26,7 +26,6 @@ public class Lecture {
     private String subject;
     private String lecturePlan;
     private int registeredParticipants;
-    //TODO Equals i hashcode dla usera?
     @ManyToMany(mappedBy = "registeredLectures")
     private Set<User> registeredUsers = new HashSet<>();
 

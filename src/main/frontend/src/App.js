@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import Home from "./Home";
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import LectureDetails from "./LectureDetails";
 
 function App() {
     return (
@@ -14,6 +15,9 @@ function App() {
                         </Route>
                         <Route exact path="/users">
 
+                        </Route>
+                        <Route exact path="/lectures/:lectureId">
+                            <LectureDetails/>
                         </Route>
                     </Switch>
                 </div>

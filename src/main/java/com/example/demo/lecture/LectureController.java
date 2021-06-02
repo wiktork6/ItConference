@@ -2,10 +2,7 @@ package com.example.demo.lecture;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,10 @@ public class LectureController {
     @GetMapping
     public List<Lecture> getLectures(){
         return lectureService.getLectures();
+    }
+
+    @GetMapping(path = "{lectureId}")
+    public Lecture getLecture(@PathVariable("lectureId") Long lectureId){
+        return lectureService.getLecture(lectureId);
     }
 }

@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
+import siilogo from './siilogo.png';
 const Navbar = () =>{
     return(
         <nav className="navbar">
-            <h1> It Conference</h1>
+            <img src={siilogo} alt = "Logo"/>
+            <Link to='/'><h1> It Conference</h1></Link>
             <div className = "links">
                 <Link to='/'>Home</Link>
                 <Link to='/lectures' style={{

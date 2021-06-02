@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 const LectureList = (props) => {
     const lectures = props.lectures;
     const title = props.title;
@@ -6,11 +7,12 @@ const LectureList = (props) => {
             <h2>{ title }</h2>
             {lectures.map((lecture)=>(
                 <div className="lecture-preview" key={lecture.id}>
-                    <h2>{lecture.subject}</h2>
-                    <p>Starts: {lecture.startDate.substring(11,16)}</p>
-                    <p>Ends: {lecture.endDate.substring(11,16)}</p>
-                    <p>Empty Slots: {5-lecture.registeredParticipants}</p>
-                    <button>Description</button>
+                    <Link to = {`/lectures/${lecture.id}`}>
+                        <h2>{lecture.subject}</h2>
+                        <p>Starts: {lecture.startDate.substring(11,16)}</p>
+                        <p>Ends: {lecture.endDate.substring(11,16)}</p>
+                        <p>Available Slots: {5-lecture.registeredParticipants}</p>
+                    </Link>
                 </div>
             ))}
         </div>

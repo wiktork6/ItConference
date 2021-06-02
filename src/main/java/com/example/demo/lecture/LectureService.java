@@ -15,9 +15,7 @@ public class LectureService {
     public List<Lecture> getLectures(){
         return lectureRepository.findAll();
     }
-
-    public void addNewLecture(Lecture lecture){
-        lectureRepository.save(lecture);
-        System.out.println(lecture);
+    public Lecture getLecture(Long lectureId){
+        return lectureRepository.findById(lectureId).get();
     }
 }
