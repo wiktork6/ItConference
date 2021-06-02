@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class User {
     @Id
     @SequenceGenerator(
-            name = "user sequence",
+            name = "user_sequence",
             sequenceName = "user_sequence",
             allocationSize = 1
     )
@@ -16,9 +16,7 @@ public class User {
             generator = "user_sequence"
     )
     private Long id;
-
     private String login;
-
     private String email;
 
     public User() {
