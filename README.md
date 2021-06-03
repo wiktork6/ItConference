@@ -1,5 +1,5 @@
 # ItConference
-Download the repository and open it in terminal.
+Clone the repository and open it in terminal.
 Change your directory to 
 ### `src/main/frontend`
 and type 
