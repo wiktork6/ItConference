@@ -105,6 +105,14 @@ public class Lecture {
         registeredUsers.add(user);
     }
 
+    public Set<User> getRegisteredUsers() {
+        return registeredUsers;
+    }
+
+    public void setRegisteredUsers(Set<User> registeredUsers) {
+        this.registeredUsers = registeredUsers;
+    }
+
     @Override
     public String toString() {
         return "Lecture{" +

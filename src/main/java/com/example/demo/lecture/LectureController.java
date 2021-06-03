@@ -18,12 +18,13 @@ public class LectureController {
     }
 
     @GetMapping
-    public List<Lecture> getLectures(){
+    public List<Lecture> getLectures() {
         return lectureService.getLectures();
     }
 
     @GetMapping(path = "{lectureId}")
-    public Lecture getLecture(@PathVariable("lectureId") Long lectureId){
+    public Lecture getLecture(@PathVariable("lectureId") Long lectureId) {
         return lectureService.getLecture(lectureId);
     }
 }
+

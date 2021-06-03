@@ -1,6 +1,7 @@
 package com.example.demo.user;
 
 import com.example.demo.lecture.Lecture;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -28,6 +29,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "lecture_id")
     )
+    @JsonIgnore
     private Set<Lecture> registeredLectures= new HashSet<>();
 
     public User() {

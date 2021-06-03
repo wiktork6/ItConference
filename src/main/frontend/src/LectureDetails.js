@@ -20,6 +20,15 @@ const LectureDetails = () => {
                     <Link to={'/lectures/' + lectureId + '/signup'}>
                         <button>Sign-up!</button>
                     </Link>
+                    <div className="registered-users">
+                        <h2>Registered Users</h2>
+                        {lecture.registeredUsers.map((user)=>(
+                            <div className="user-preview" key={user.id}>
+                                <p>{user.login}</p>
+                                <p>{user.email}</p>
+                            </div>
+                        ))}
+                    </div>
                 </article>
             )}
         </div>
