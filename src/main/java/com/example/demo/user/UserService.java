@@ -49,6 +49,7 @@ public class UserService {
             lecture.setRegisteredParticipants(lecture.getRegisteredParticipants()+1);
             user.addLecture(lecture);
             createNotification(user, lecture);
+            lectureRepository.save(lecture);
             userRepository.save(user);
         }else{
             Set<Lecture> registeredLectures = userOptional.get().getRegisteredLectures();
@@ -61,9 +62,11 @@ public class UserService {
                 }
             }
             lecture.setRegisteredParticipants(lecture.getRegisteredParticipants()+1);
-            userOptional.get().addLecture(lecture);
+            lectureRepository.save(lecture);
+            User user2 = userOptional.get();
+            user2.addLecture(lecture);
             createNotification(user, lecture);
-            userRepository.save(userOptional.get());
+            userRepository.save(user2);
         }
     }
 
@@ -103,6 +106,7 @@ public class UserService {
             if(lecture.getId()==lectureId){
                 lectures.remove(lecture);
                 lecture.setRegisteredParticipants(lecture.getRegisteredParticipants()-1);
+                lectureRepository.save(lecture);
                 break;
             }
         }

@@ -1,8 +1,7 @@
 package com.example.demo.user;
 
 import com.example.demo.lecture.Lecture;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -10,9 +9,6 @@ import java.util.Set;
 
 @Entity
 @Table
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
 public class User {
     @Id
     @SequenceGenerator(
@@ -27,6 +23,7 @@ public class User {
     private Long id;
     private String login;
     private String email;
+    @JsonIgnoreProperties({"registeredUsers"})
     @ManyToMany
     @JoinTable(
             name = "participants",
