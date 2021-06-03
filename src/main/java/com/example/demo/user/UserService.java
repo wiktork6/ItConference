@@ -6,6 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -14,7 +19,6 @@ import java.util.Set;
 public class UserService {
 
     private final UserRepository userRepository;
-    //TODO Remove this and in body lecture
     private final LectureRepository lectureRepository;
 
     @Autowired
@@ -44,6 +48,7 @@ public class UserService {
         if(!userOptional.isPresent()){
             lecture.setRegisteredParticipants(lecture.getRegisteredParticipants()+1);
             user.addLecture(lecture);
+            createNotification(user, lecture);
             userRepository.save(user);
         }else{
             Set<Lecture> registeredLectures = userOptional.get().getRegisteredLectures();
@@ -57,7 +62,27 @@ public class UserService {
             }
             lecture.setRegisteredParticipants(lecture.getRegisteredParticipants()+1);
             userOptional.get().addLecture(lecture);
+            createNotification(user, lecture);
             userRepository.save(userOptional.get());
+        }
+    }
+
+    private void createNotification(User user, Lecture lecture){
+        File file = new File("notifications.txt");
+        String notification =
+                        "\n" +
+                        "Email sent on: " + LocalDateTime.now().toString() + ",\n" +
+                        "to: " + user.getEmail() + "\n" +
+                        "You have registered for \n" +
+                        lecture.getTitle() + " - " + lecture.getSubject() + "\n" +
+                        "which will take place on " +
+                        lecture.getStartDate() + " \n";
+        try{
+            FileWriter fileWriter = new FileWriter(file, true);
+            PrintWriter pw = new PrintWriter(fileWriter);
+            pw.write(notification);
+            pw.close();
+        }catch(IOException e){
         }
     }
 
