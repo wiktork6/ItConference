@@ -24,7 +24,6 @@ class LectureServiceTest {
     @Test
     void canGetAllLectures() {
         //given
-
         underTest.getLectures();
         //then
         verify(lectureRepository).findAll();
