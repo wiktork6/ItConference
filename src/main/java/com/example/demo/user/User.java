@@ -1,7 +1,8 @@
 package com.example.demo.user;
 
 import com.example.demo.lecture.Lecture;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -9,6 +10,9 @@ import java.util.Set;
 
 @Entity
 @Table
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class User {
     @Id
     @SequenceGenerator(
@@ -29,7 +33,6 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "lecture_id")
     )
-    @JsonIgnore
     private Set<Lecture> registeredLectures= new HashSet<>();
 
     public User() {

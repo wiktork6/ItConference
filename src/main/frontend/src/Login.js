@@ -1,14 +1,15 @@
 import {useState} from 'react';
+import {useHistory} from 'react-router-dom'
 
 const Login = () => {
     const [login, setLogin] = useState('');
-    const [notification, setNotification] = useState('');
+    const history = useHistory();
 
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        fetch('http://localhost:8080/users/').then(()=>{
-        })
+        history.push('/users/' + login)
+
     }
     return(
         <div className = "login">

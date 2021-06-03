@@ -1,11 +1,9 @@
 package com.example.demo.user;
 
-import com.example.demo.lecture.Lecture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping(path = "users")
@@ -23,9 +21,9 @@ public class UserController {
     public List<User> getUsers(){
         return userService.getUsers();
     }
-    @GetMapping(path = "{userId}")
-    public Set<Lecture> getLectures(@PathVariable("userId") Long id){
-        return userService.getLectures(id);
+    @GetMapping(path = "{login}")
+    public User getLectures(@PathVariable("login") String login){
+        return userService.getUser(login);
     }
 
     @PostMapping

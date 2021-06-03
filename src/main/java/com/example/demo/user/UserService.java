@@ -27,6 +27,9 @@ public class UserService {
     public List<User> getUsers() {
         return userRepository.findAll();
     }
+    public User getUser(String login) {
+        return userRepository.findUserByLogin(login).get();
+    }
 
     public void addNewUser(User user, Long lectureId){
         Optional<User> userOptional = userRepository

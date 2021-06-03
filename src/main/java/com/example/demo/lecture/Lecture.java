@@ -1,6 +1,8 @@
 package com.example.demo.lecture;
 
 import com.example.demo.user.User;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -8,6 +10,9 @@ import java.util.Set;
 
 @Entity
 @Table
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Lecture {
     @Id
     @SequenceGenerator(

@@ -28,7 +28,6 @@ const SignUp = () => {
             body: JSON.stringify(user)
         }).then((res)=>{
             if(!res.ok){
-                // setNotification("Maximum number of participants was achieved")
                 res.json()
                     .then((json)=>{setNotification(json.message)})
                     .catch((err) => setNotification("Something went wrong " + err))

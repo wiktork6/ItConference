@@ -5,6 +5,7 @@ import LectureDetails from "./LectureDetails";
 import SignUp from "./SignUp";
 import NotFound from "./NotFound";
 import Login from "./Login";
+import Account from "./Account";
 
 function App() {
     return (
@@ -16,10 +17,10 @@ function App() {
                         <Route exact path="/">
                             <Home />
                         </Route>
-                        <Route exact path="/users">
-
+                        <Route exact path="/users/:login">
+                            <Account />
                         </Route>
-                        <Route exact path="/lectures">
+                        <Route exact path="/users">
                             <Login/>
                         </Route>
                         <Route exact path="/lectures/:lectureId">
