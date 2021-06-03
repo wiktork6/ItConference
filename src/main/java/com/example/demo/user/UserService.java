@@ -57,7 +57,7 @@ public class UserService {
                     throw new IllegalStateException("You are already registered");
                 }
                 if(registeredLecture.getEndDate().equals(lectureRepository.getById(lectureId).getEndDate())){
-                    throw new IllegalStateException("You take part in similitanius lecture");
+                    throw new IllegalStateException("You take part in simultaneous lecture");
                 }
             }
             lecture.setRegisteredParticipants(lecture.getRegisteredParticipants()+1);
