@@ -41,11 +41,11 @@ public class UserController {
         userService.deleteUser(id);
     }
 
-    @PutMapping(path = "{userId}")
+    @PutMapping(path = "{login}")
     public void updateStudent(
-            @PathVariable("userId") Long userId,
+            @PathVariable("login") String login,
             String email){
-        userService.updateUser(userId, email);
+        userService.updateUser(login, email);
     }
 
 }

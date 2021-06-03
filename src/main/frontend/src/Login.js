@@ -9,7 +9,6 @@ const Login = () => {
     const handleSubmit = (e)=>{
         e.preventDefault();
         history.push('/users/' + login)
-
     }
     return(
         <div className = "login">

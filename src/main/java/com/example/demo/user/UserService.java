@@ -121,10 +121,10 @@ public class UserService {
     }
 
     @Transactional
-    public void updateUser(Long userId, String email){
-        User user = userRepository.findById(userId)
+    public void updateUser(String login, String email){
+        User user = userRepository.findUserByLogin(login)
                 .orElseThrow(()-> new IllegalStateException(
-                        "User with id " + userId + " does not exist"
+                        "User with login " + login + " does not exist"
                 ));
         user.setEmail(email);
     }

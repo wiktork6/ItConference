@@ -6,6 +6,7 @@ import SignUp from "./SignUp";
 import NotFound from "./NotFound";
 import Login from "./Login";
 import Account from "./Account";
+import EmailUpdate from "./EmailUpdate";
 
 function App() {
     return (
@@ -17,11 +18,14 @@ function App() {
                         <Route exact path="/">
                             <Home />
                         </Route>
+                        <Route exact path="/users">
+                            <Login/>
+                        </Route>
                         <Route exact path="/users/:login">
                             <Account />
                         </Route>
-                        <Route exact path="/users">
-                            <Login/>
+                        <Route exact path="/users/:login/update">
+                            <EmailUpdate />
                         </Route>
                         <Route exact path="/lectures/:lectureId">
                             <LectureDetails/>

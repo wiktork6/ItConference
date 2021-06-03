@@ -46,3 +46,15 @@ to: d@wp.pl
 You have registered for 
 Artificial Intelligence - History of AI
 which will take place on 2021-06-01:10:00 
+
+Email sent on: 2021-06-03T08:51:52.986959100,
+to: newEmail@gmail.com
+You have registered for 
+Artificial Intelligence - History of AI
+which will take place on 2021-06-01:10:00 
+
+Email sent on: 2021-06-03T08:52:31.986965400,
+to: newEmail@gmail.com
+You have registered for 
+Artificial Intelligence - History of AI
+which will take place on 2021-06-01:10:00 

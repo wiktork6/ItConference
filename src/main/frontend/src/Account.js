@@ -13,13 +13,16 @@ const Account = () =>{
             history.go(0);
         })
     };
+    const redirectToEmailChange = () =>{
+        history.push(`/users/`+ login + "/update" )
+    }
 
 
     return (
         <div className="my-account">
             {error && <div>{"User " + login + " does not exist"}</div>}
             {user && <div>
-                <p>Email: {user.email}</p> <button>Update Mail</button>
+                <p>Email: {user.email}</p> <button onClick={redirectToEmailChange}>Update Mail</button>
                 <p>Login: {user.login}</p>
                 <div className="lecture-list">
                     {user.registeredLectures.map((lecture)=>(
@@ -28,7 +31,7 @@ const Account = () =>{
                             <h2>{lecture.subject}</h2>
                             <p>Starts: {lecture.startDate.substring(11,16)}</p>
                             <p>Ends: {lecture.endDate.substring(11,16)}</p>
-                            <button onClick={()=>handleClick(lecture.id)}>UnRegister</button>
+                            <button onClick={()=>handleClick(lecture.id)}>Cancel Booking</button>
                         </div>
                     ))}
                 </div>
