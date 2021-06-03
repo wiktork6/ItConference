@@ -77,3 +77,37 @@ img{
   border-radius: 8px;
   cursor: pointer;
 }
+
+
+
+
+.SignUp {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.SignUp label {
+  text-align: left;
+  display: block;
+}
+.SignUp h2 {
+  font-size: 20px;
+  color: #6495ED;
+  margin-bottom: 30px;
+}
+.SignUp input {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.SignUp button {
+  background: #6495ED;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}

@@ -17,7 +17,9 @@ const LectureDetails = () => {
                     <p>Ends: {lecture.endDate.substring(11,16)}</p>
                     <p>Available Slots: {5-lecture.registeredParticipants}</p>
                     <div>{lecture.lecturePlan}</div>
-                    <button>Sign-Up!</button>
+                    <Link to={'/lectures/' + lectureId + '/signup'}>
+                        <button>Sign-up!</button>
+                    </Link>
                 </article>
             )}
         </div>
