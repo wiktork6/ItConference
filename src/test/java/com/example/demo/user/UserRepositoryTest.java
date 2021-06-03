@@ -1,5 +1,6 @@
 package com.example.demo.user;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -14,8 +15,14 @@ class UserRepositoryTest {
     @Autowired
     private UserRepository underTest;
 
+    @AfterEach
+    void tearDow(){
+        underTest.deleteAll();
+    }
+
+
     @Test
-    public void itShouldFindUserByEmail() {
+    void itShouldFindUserByEmail() {
         //given
         String email = "email@gmail.com";
         User user = new User(
@@ -30,7 +37,7 @@ class UserRepositoryTest {
     }
 
     @Test
-    public void itShouldFindUserByLogin() {
+    void itShouldFindUserByLogin() {
         //given
         String email = "email@gmail.com";
         String login = "login";
