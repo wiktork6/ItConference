@@ -26,6 +26,11 @@ public class UserController {
         return userService.getUser(login);
     }
 
+    @DeleteMapping(path = "{login}/{lectureId}")
+    public void deleteLectureFromUser(@PathVariable("login")String login, @PathVariable Long lectureId){
+        userService.deleteLectureFromUser(login, lectureId);
+    }
+
     @PostMapping
     public void registerNewUser(@RequestBody User user, Long lectureId){
         userService.addNewUser(user, lectureId);

@@ -37,8 +37,6 @@ const SignUp = () => {
         })
     }
 
-
-
     return(
         <div className = "SignUp">
             {error && <div>error</div>}

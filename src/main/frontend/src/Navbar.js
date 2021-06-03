@@ -5,7 +5,7 @@ const Navbar = () =>{
     return(
         <nav className="navbar">
             <img src={siilogo} alt = "Logo"/>
-            <Link to='/'><h1> It Conference</h1></Link>
+            <Link to='/'><h1> IT Conference</h1></Link>
             <div className = "links">
                 <Link to='/'>Home</Link>
                 <Link to='/users' style={{

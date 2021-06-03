@@ -91,16 +91,30 @@ public class UserService {
         boolean exists = userRepository.existsById(userId);
         if(!exists){
             throw new IllegalStateException(
-                    "user with id: " + userId + " does not exist");
+                    "User with id: " + userId + " does not exist");
         }
         userRepository.deleteById(userId);
+    }
+
+    public void deleteLectureFromUser(String login, Long lectureId){
+        User user = userRepository.findUserByLogin(login).get();
+        Set<Lecture> lectures = user.getRegisteredLectures();
+        for(Lecture lecture : lectures){
+            if(lecture.getId()==lectureId){
+                lectures.remove(lecture);
+                lecture.setRegisteredParticipants(lecture.getRegisteredParticipants()-1);
+                break;
+            }
+        }
+        user.setRegisteredLectures(lectures);
+        userRepository.save(user);
     }
 
     public Set<Lecture> getLectures(Long userId){
         boolean exists = userRepository.existsById(userId);
         if(!exists){
             throw new IllegalStateException(
-                    "user with id: " + userId + " does not exist");
+                    "User with id: " + userId + " does not exist");
         }
         User user = userRepository.getById(userId);
         return user.getRegisteredLectures();
